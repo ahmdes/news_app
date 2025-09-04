@@ -22,7 +22,7 @@ class HomeView extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              "News",
+              "New",
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
