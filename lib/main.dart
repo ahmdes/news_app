@@ -1,8 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app_flutter/views/home_view.dart';
 
-void main()
-{
+void main() {
   runApp(NewsApp());
 }
 class NewsApp extends StatelessWidget {
