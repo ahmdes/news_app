@@ -2,7 +2,7 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:news_app_flutter/models/image_and_text_model.dart';
+import '../../behaviour/models/image_and_text_model.dart';
 import '../widgets/catogry_list_view.dart';
 import '../widgets/news_list_view_builder.dart';
 

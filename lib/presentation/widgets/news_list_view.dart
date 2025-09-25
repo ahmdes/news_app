@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_flutter/models/article_model.dart';
 
+import '../../behaviour/models/article_model.dart';
 import 'news_tile_item_widget.dart';
 
 class NewsListView extends StatelessWidget {
