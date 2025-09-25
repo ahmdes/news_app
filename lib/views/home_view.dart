@@ -1,10 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:news_app_flutter/models/image_and_text_model.dart';
-import 'catogry_list_view.dart';
-import 'news_tile_view.dart';
+import 'dart:ffi';
 
-class HomeView extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:news_app_flutter/models/image_and_text_model.dart';
+import '../widgets/catogry_list_view.dart';
+import '../widgets/news_list_view_builder.dart';
+
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
   final List<ImageAndText> imageAndText = const [
     ImageAndText(image: "assets/business.avif", word: "Business"),
     ImageAndText(image: "assets/entertaiment.avif", word: "Entertainment"),
@@ -14,6 +23,10 @@ class HomeView extends StatelessWidget {
     ImageAndText(image: "assets/sports.avif", word: "Sports"),
     ImageAndText(image: "assets/technology.jpeg", word: "Technology"),
   ];
+
+  bool? value = false;
+  String selectOption = "option one";
+  double valueOfSlider = 0.5;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,20 +57,86 @@ class HomeView extends StatelessWidget {
         elevation: 0,
       ),
       body: CustomScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: ClampingScrollPhysics(),
         slivers: [
           SliverAppBar(
-            title: Text("this is sliver AppBar",style: TextStyle(
-              color: Colors.yellow,
-              fontSize: 40,
-              fontWeight: FontWeight.w700,
-            ),),
+            title: Text(
+              "this is sliver AppBar",
+              style: TextStyle(
+                color: Colors.yellow,
+                fontSize: 40,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
             backgroundColor: Colors.brown,
             pinned: true,
           ),
           SliverToBoxAdapter(
-              child: CategoryListView(imageAndText: imageAndText)),
-          NewsTileView(),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  labelText: "Formatter",
+                  hintText: "try your formatter",
+                ),
+                inputFormatters: [
+                  FilteringTextInputFormatter.deny(RegExp("[a-z]")),
+                  FilteringTextInputFormatter.allow(RegExp('[a-zA-Z0-9]')),
+                  LengthLimitingTextInputFormatter(4),
+                ],
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Checkbox(
+              value: value,
+              onChanged: (newValue) {
+                value = newValue;
+                setState(() {});
+              },
+            ),
+          ),
+          SliverToBoxAdapter(
+              child: Radio(
+                  value: "option one",
+                  groupValue: selectOption,
+                  onChanged: (value) {
+                    selectOption = value!;
+                    setState(() {});
+                  },),),
+          SliverToBoxAdapter(
+            child: Radio(
+              value: "option two",
+              groupValue: selectOption,
+              onChanged: (value) {
+                selectOption = value!;
+                setState(() {});
+              },
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Slider(
+              divisions: 5,
+              value: valueOfSlider,
+              onChanged: (value) {
+                valueOfSlider = value;
+                setState(() {});
+              },
+              label: valueOfSlider.toString(),
+              thumbColor:Colors.red ,
+              activeColor:Colors.blue ,
+              inactiveColor: Colors.green,
+              secondaryActiveColor: Colors.yellow,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: CategoryListView(
+              imageAndText: imageAndText,
+            ),
+          ),
+          NewsListViewBuilder(
+            informationType: 'general',
+          ),
         ],
       ),
     );

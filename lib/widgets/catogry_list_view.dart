@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/image_and_text_model.dart';
-import '../widgets/category_card.dart';
+import 'category_card.dart';
 
 class CategoryListView extends StatefulWidget {
   const CategoryListView({
