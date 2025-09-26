@@ -15,7 +15,7 @@ class NewsServices {
           ArticleModel(
             image: element['urlToImage'],
             title: element['title'],
-            subTitle: element['description'],
+            subTitle: element['description'], url: element['url'],
           ),
         );
       }
