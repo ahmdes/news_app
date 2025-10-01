@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_flutter/behaviour/core/resources/colors_manager.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class CategoryElementDetailsView extends StatefulWidget {
@@ -11,28 +12,27 @@ class CategoryElementDetailsView extends StatefulWidget {
 
 class _CategoryElementDetailsViewState
     extends State<CategoryElementDetailsView> {
-  String urlDate = widget.url;
-  WebViewController controller = WebViewController()
-    ..setJavaScriptMode(JavaScriptMode.unrestricted)
-    ..setNavigationDelegate(
-      NavigationDelegate(
-        onProgress: (int progress) {
-          // Update loading bar.
-        },
-        onPageStarted: (String url) {},
-        onPageFinished: (String url) {},
-        onHttpError: (HttpResponseError error) {},
-        onWebResourceError: (WebResourceError error) {},
-        onNavigationRequest: (NavigationRequest request) {
-          if (request.url.startsWith('https://www.youtube.com/')) {
-            return NavigationDecision.prevent;
-          }
-          return NavigationDecision.navigate;
-        },
-      ),
-    )
-    ..loadRequest(Uri.parse(
-        "https://www.wired.com/story/this-humanoid-robot-is-showing-signs-of-generalized-learning/"));
+  late WebViewController controller;
+  bool isLoading = true;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller = WebViewController()
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onPageFinished: (url) {
+            // When page finished loading
+            setState(() {
+              isLoading = false;
+            });
+          },
+        ),
+      )
+      ..loadRequest(
+        Uri.parse(widget.url),
+      );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,14 +43,20 @@ class _CategoryElementDetailsViewState
           style: TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: 25,
-            color: Colors.black,
+            color: ColorsManager.black,
           ),
         ),
         centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: WebViewWidget(controller: controller),
+        child: isLoading
+            ? Center(
+                child: CircularProgressIndicator(
+                  color: Colors.blue,
+                ),
+              )
+            : WebViewWidget(controller: controller),
       ),
     );
   }

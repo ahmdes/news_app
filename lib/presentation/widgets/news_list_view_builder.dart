@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_flutter/behaviour/core/resources/colors_manager.dart';
 import '../../behaviour/models/article_model.dart';
 import '../../behaviour/services/news_services.dart';
 import 'news_list_view.dart';
@@ -33,7 +34,7 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 20,
-                  color: Colors.red,
+                  color: ColorsManager.red,
                 ),
               ),
             ),
@@ -46,7 +47,7 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
           return SliverFillRemaining(
             child: Center(
               child: CircularProgressIndicator(
-                color: Colors.blue,
+                color: ColorsManager.blue,
               ),
             ),
           );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_flutter/behaviour/core/resources/colors_manager.dart';
 import '../../behaviour/models/image_and_text_model.dart';
 import '../views/category_view.dart';
 
@@ -39,7 +40,7 @@ class CategoryCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: ColorsManager.white,
               ),
             ),
           ),

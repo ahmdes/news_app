@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../behaviour/models/article_model.dart';
 import 'news_tile_item_widget.dart';
 
@@ -8,7 +7,7 @@ class NewsListView extends StatelessWidget {
     super.key,
     required this.articlesData,
   });
-  final List<ArticleModel>articlesData;
+  final List<ArticleModel> articlesData;
   @override
   Widget build(BuildContext context) {
     return SliverList(

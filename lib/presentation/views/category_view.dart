@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_flutter/behaviour/core/resources/colors_manager.dart';
 
 import '../widgets/news_list_view_builder.dart';
 
@@ -13,7 +14,7 @@ class CategoryView extends StatelessWidget {
         title: Text(
           categoryName,
           style: TextStyle(
-            color: Colors.black,
+            color: ColorsManager.black,
             fontSize: 20,
             fontWeight: FontWeight.w400,
           ),

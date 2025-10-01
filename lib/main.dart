@@ -4,6 +4,7 @@ import 'package:news_app_flutter/presentation/views/home_view.dart';
 void main() {
   runApp(NewsApp());
 }
+
 class NewsApp extends StatelessWidget {
   const NewsApp({super.key});
 
