@@ -52,8 +52,12 @@ This project allows users to stay updated with the latest news across different 
 
 ---
 
-## 🙌 Acknowledgements  
+## 📬 Contact
 
-Special thanks to the open-source community and resources that supported me throughout this project.  
+Feel free to connect or reach out:
+
+- 💼 [LinkedIn](https://www.linkedin.com/in/ahmed-mostafa-daoud)  
+- 📧 [Email](mailto:ahmed.mostafa.elshekh@gmail.com)  
+- 📱 WhatsApp: [wa.me/201029121638](https://wa.me/201029121638)  
 
 ---
