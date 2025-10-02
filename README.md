@@ -48,7 +48,7 @@ This project allows users to stay updated with the latest news across different 
 ## 🔗 Links  
 
 - 📹 [Demo Video](https://youtu.be/SKQNJWLeh_U)  
-- 💻 [Source Code](https://github.com/ahmeds/newsapp)  
+- 💻 [Source Code](https://github.com/ahmdes/newsapp)  
 
 ---
 
