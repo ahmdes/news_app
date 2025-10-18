@@ -13,7 +13,7 @@ This project allows users to stay updated with the latest news across different 
 
 ## 📱 Demo  
 
-🎥 [Watch the Demo Video](https://youtu.be/SKQNJWLeh_U)  
+🎥 [Watch the Demo Video](https://youtu.be/VrmGolCXnzQ)  
 
 ---
 
@@ -47,7 +47,7 @@ This project allows users to stay updated with the latest news across different 
 
 ## 🔗 Links  
 
-- 📹 [Demo Video](https://youtu.be/SKQNJWLeh_U)  
+- 📹 [Demo Video](https://youtu.be/VrmGolCXnzQ)  
 - 💻 [Source Code](https://github.com/ahmdes/news_app)  
 
 ---
